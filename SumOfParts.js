@@ -36,6 +36,7 @@ function partsSums(ls) {
   return sums
 }
 
+
 //This solution doesn't compute the sum everytime, just subtracts the removed number
 function partsSums(ls) {
     let sum = ls.reduce((sum, n) => sum + n, 0)
