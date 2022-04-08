@@ -25,11 +25,12 @@
 function nbYear(p0, percent, aug, p) {
     let countYears = 0;
     while(p0 < p) {
-        p0 = p0*(1+percent/100) + aug
+        p0 = Math.floor(p0*(1+(percent/100)) + aug)
         countYears++
     }
     return countYears
-}
+  }
+  
 
 
 console.log(nbYear(1500, 5, 100, 5000), 15);
