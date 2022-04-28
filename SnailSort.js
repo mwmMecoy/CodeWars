@@ -21,7 +21,7 @@ snail = function(array) {
     let snail = [];
     //While there are still elements left in the arrays
     while(array.length > 0) {
-        
+
       //First line pushed to array
       snail.push(...array.shift())
 
@@ -40,6 +40,24 @@ snail = function(array) {
     }
     return snail;
   }
+
+//   Alternate with do/while
+
+//   snail = function(arr) {
+//     var result = [];
+//     var top = 0, bottom = arr.length-1;
+//     var left = 0, right = arr[0].length-1;
+    
+//     do {
+//       for (var i = left; i <= right; i++){result.push(arr[top][i])} // top row
+//       for (var i = top+1; i <= bottom; i++){result.push(arr[i][right])} // right column
+//       for (var i = right-1; i >= left; i--){result.push(arr[bottom][i])} // bottom row
+//       for (var i = bottom-1; i > top; i--){result.push(arr[i][left])} // left column
+//       top++; bottom--; left++; right--;
+//     } while (top <= bottom);
+    
+//     return result;
+//   }
 
 
 
