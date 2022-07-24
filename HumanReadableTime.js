@@ -25,7 +25,7 @@ function humanReadable (seconds) {
       s = `0${s}`
     }
     return `${hours}:${minutes}:${s}`
-  }
+}
 
   console.log(humanReadable(0), '00:00:00', 'humanReadable(0)');
   console.log(humanReadable(59), '00:00:59', 'humanReadable(59)');
