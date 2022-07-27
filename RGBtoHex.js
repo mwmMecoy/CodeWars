@@ -46,5 +46,5 @@ function rgb(r, g, b){
     } else{
         str += b
     }
-    return str
+    return str.toUpperCase()
 }
