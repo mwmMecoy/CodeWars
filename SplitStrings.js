@@ -9,12 +9,12 @@ function solution(str){
     let arr= []
     if(str.length%2==1) {
         for(let i = 0; i<str.length-1; i+=2) {
-            arr.push(str.substring(i, i+1))
+            arr.push(str.substring(i, i+2))
         }
         arr.push(`${str[str.length-1]}_`)
     } else {
         for(let i = 0; i<str.length; i+=2) {
-            arr.push(str.substring(i, i+1))
+            arr.push(str.substring(i, i+2))
         }
     }
     return arr
