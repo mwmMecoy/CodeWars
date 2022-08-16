@@ -17,6 +17,15 @@
 // Note
 // In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same.
 
+//P - An array of symbols in groups of 2 or 3
+//R - the number of valid groups of symbols that are smiley faces
+//E - 
+// Example
+// countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+// countSmileys([';D', ':-(', ':-)', ';~)']);     // should return 3;
+// countSmileys([';]', ':[', ';*', ':$', ';-D']); // should return 1;
+//P - iterate through the array of symbols, split each smiley into its individual characters. If there are 2 characters check for a valid eyes, then a valid mouth. Otherwise check for valid eyes, nose, and mouth. If all valid increment the number of valid smileys to return at the end
+
 //return the total number of smiling faces in the array
 function countSmileys(arr) {
     let smile = []
