@@ -61,5 +61,6 @@ function dirReduc(arr){
         }
     }
 
+    
     return directions
 }
