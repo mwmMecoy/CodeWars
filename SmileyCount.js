@@ -38,4 +38,4 @@ function countSmileys(arr) {
         }
     }
     return smileCount;
-  }
+}
