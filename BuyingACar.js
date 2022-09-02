@@ -42,7 +42,7 @@ function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMon
 
     let count = 0;
     let savings = 0
-    while(startPriceOld + savingperMonth < startPriceNew){
+    while(startPriceOld + savings < startPriceNew){
         count++
         if(count%2 ==0){
             percentLossByMonth += .5
@@ -50,8 +50,8 @@ function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMon
         startPriceOld *= 1-(percentLossByMonth/100)
         startPriceNew *= 1-(percentLossByMonth/100)
         savings += savingperMonth
-        console.log(startPriceOld, startPriceNew, percentLossByMonth, savings)
+        console.log(count ,startPriceOld, startPriceNew, percentLossByMonth, savings)
     }
-    return [count, startPriceOld+savings-startPriceNew]
+    return [count, Math.round(startPriceOld+savings-startPriceNew)]
 }
 
