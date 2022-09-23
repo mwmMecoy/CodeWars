@@ -3,25 +3,25 @@
 // Note: you will always receive a valid array (string in COBOL) containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
 
 function isValidWalk(walk) {
-    //insert brilliant code here
-    if(walk.length !== 10) return false;
-    let ns = 0
-    let ew = 0
-    walk.forEach((direction) => {
-      switch(direction){
-        case 'n':
-          ns++
-          break;
-        case 's':
-          ns--
-          break;
-        case 'e':
-          ew++
-          break;
-        case 'w':
-          ew--
-          break;
-        }
-      })
-    return (ns==0 && ew==0)
-  }
+  //insert brilliant code here
+  if(walk.length !== 10) return false;
+  let ns = 0
+  let ew = 0
+  walk.forEach((direction) => {
+    switch(direction){
+      case 'n':
+        ns++
+        break;
+      case 's':
+        ns--
+        break;
+      case 'e':
+        ew++
+        break;
+      case 'w':
+        ew--
+        break;
+      }
+    })
+  return (ns==0 && ew==0)
+}
