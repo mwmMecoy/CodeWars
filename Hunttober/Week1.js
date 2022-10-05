@@ -66,9 +66,7 @@ console.log(day2Decode("af)|Cz>:CGAHY1_2+(OHYYTM!2vka,&yAlWJ3.r&ZVs4F5&bEa<1r1_n
 
 // Remember to keep your code somewhere safe, as you'll need it to decrypt this week's message!
 
-function day3Decode(str){
-    let key = ['S','p','a','c','e']
-
+function day3Decode(str, key){
     let filtered = []
     for(let i = 0; i < str.length; i++){
         if(key.includes(str[i])){
@@ -80,6 +78,8 @@ function day3Decode(str){
 
     return filtered.join('')
 }
+
+console.log(day3Decode('AyouEcould!thinkKthisAisYhard_toYreadKbeforeYreplacingEthe_keyYcharacters', ['A','_','K','E','Y','!']))
 
 
 
