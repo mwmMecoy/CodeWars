@@ -91,5 +91,61 @@ function day4Decode(str){
 }
 
 
+// There are some very strict rules that the pun submissions had to follow. I need to know which of these cat puns made the cut. I promise tomorrow we'll get back to decoding our secret message, and coincidentally, I'm pretty sure the number of these puns that met the criteria will match a key sequence value we'll need tomorrow. Isn't that lucky?
+
+// Here are the rules these submissions had to follow:
+// No empty spaces at the start or end of the submission (my friend can't stand when people don't follow directions)
+// Cannot contain 'dog', 'bark', or 'bone' in any combination of upper or lower case (canine trolling can't be stopped)
+// Total length of pun cannot be a multiple of 5 (this includes spaces and punctuation)
+// The sum of the charCodes of the 1st and last characters must be odd (my friend's a bit of a character, but she's great once you get to know her)
+// Middle character may not be 'e' (if there are an even number of characters, look at the next one after mid-point. For example center has a middle character of t)
+// Must have an even number of lowercase letters (do not count punctuation or spaces as letters)
+// Must have at least 2 capital letters (honestly, I'm a little worried these requirements are too strict)
+// Must not contain a capital 'S' (definitely too strict. What does S even have to do with cat puns?)
+// Send me a DM of the puns that made the cut on Twitter, and go ahead and save the final count to use tomorrow. Thanks!
+
+// "The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood"
+
+function day5Decode(str){
+    let arr = str.split(',')
+    arr = arr.filter(x => 
+                        x == x.trim()
+                        && !x.toLowerCase().includes("dog") 
+                        && !x.toLowerCase().includes("bark") 
+                        && !x.toLowerCase().includes("bone")
+                        && x.length % 5 != 0 
+                        && (x.charCodeAt(0)+ x.charCodeAt(x.length-1)) % 2 == 1 
+                        && x[Math.ceil(x.length/2)].toLowerCase() != 'e'
+                        && countLower(x) % 2 == 0
+                        && countUpper(x) >= 2
+                        && !x.includes('S')
+                        )
+    return arr;
+}
+
+function countLower(str){
+    let count = 0;
+    for(let i = 0; i < str.length; i++){
+        if(str[i].toLowerCase() == str[i] && str[i].toLowerCase() != str[i].toUpperCase()){
+            count++
+        }
+    }
+    return count;
+}
+
+function countUpper(str){
+    let count = 0;
+    for(let i = 0; i < str.length; i++){
+        if(str[i].toUpperCase() == str[i] && str[i].toLowerCase() != str[i].toUpperCase()){
+            count++
+        }
+    }
+    return count;
+}
+
+console.log(day5Decode("The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood"
+))
+
+
 
 
