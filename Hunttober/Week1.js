@@ -147,5 +147,26 @@ console.log(day5Decode("The Pawshank Redemption,Caturday Night Live,Only Meworde
 ))
 
 
+// Write a function that, when given a non-empty string, and positive integer X, removes every Xth character from the string. Counting should begin from the first element in the string and should continue in that pattern until the end of the string.
 
+// // For the string below and 4
+// "Thies its H alltowe!en!? Th#is Tis GHalolomeen$!"
+// // remove decoy strings
+// "This is Halloween! This is Halloween!"
 
+// // For the string below and 5
+// "The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow."
+// // remove decoy strings and preach 🙌
+// "The Bachelor is a terrible television show."
+
+function day6Decode(str, num){
+    let arr = []
+    for(let i = 0; i < str.length; i++){
+        if((i+1) % num != 0){
+            arr.push(str[i])
+        }
+    }
+    return arr.join('')
+}
+
+console.log(day6Decode("The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow.", 5))
