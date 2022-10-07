@@ -33,7 +33,7 @@ function day1Decode(scrambled){
     return(unscrabled.join('')) 
 }
 
-console.log(day1Decode("PR0-T1P #hqB: 1T'5 N1C3 T0 5AY H3770."))
+//console.log(day1Decode("PR0-T1P #hqB: 1T'5 N1C3 T0 5AY H3770."))
 
 // It turns out that a cat snuck in the house and decided to do some typing while I was away from my desk. Lucky break though, somehow the last key the cat managed to type was a lowercase 'c', and it also somehow managed to be the only lowercase 'c' the cat typed.
 
@@ -81,7 +81,7 @@ function day3Decode(str, key){
     return filtered.join('')
 }
 
-console.log(day3Decode('AyouEcould!thinkKthisAisYhard_toYreadKbeforeYreplacingEthe_keyYcharacters', ['A','_','K','E','Y','!']))
+//console.log(day3Decode('AyouEcould!thinkKthisAisYhard_toYreadKbeforeYreplacingEthe_keyYcharacters', ['A','_','K','E','Y','!']))
 
 // Today is simple! Given a string, reverse it. Any details like whitespace, letter casing, or punctuation should be preserved and flipped along with the rest of the string. For example:
 
@@ -143,8 +143,7 @@ function countUpper(str){
     return count;
 }
 
-console.log(day5Decode("The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood"
-))
+console.log(day5Decode("The Pawshank Redemption,Caturday Night Live,Only Meworders in the Building,I Love Mewcy, Mewsummer Meowders,The Golden Purrs, Purrlandia ,Meowpardy, Meowstery Science Theater: Purrthousand, Amewican Idol,Dog City,Doctor Mew , The Meowing Fed,Mew Peter,The Vicar of Dogley, Kittens,Meownton Abbey,Pets and the Kitty,Dogis and Bonehead,Pawlty Meowers ,The Meowpet Show,Barkos,The Catbert Purrport,The Pawffice,The Dogford Files, Battlestar Catlactica,Catlumbo,SpongeDog Squarepants,NYPD Mew ,Fluffy the Meowpire Purrer,The Inbemewners,Meowder She Wrote,Paw & Order,30 Dog, Pawvatar: The Last Meowbender,The Pawnight Show,Arrested Dogvelopment,Furiends,Mewie,Curb Your Dogthusiasm,Teenage Mewtant Ninja Turtles,Phineas and Purrb,Paw Trek, Paw Trek: The Next Mewination, Twin Mewks, *C*A*T*S*,DogTales, Game of Bones, House of the Meowgon,The Purrlight Zone,Breaking Bone,The Meowre,The Dogpranos,The Rings of Meower, The KIT Crowd,Strangepaw Things ,Catman: The Animeowted Series,Meowter Call Saul,Mewgerton ,Obark,Mewphoria,La Casa de Pawpel,Rick & Meowty,Amewican Purror Story, Mewcifer,PawndaVision,Dogxter,The Meowndalorian, Dog Lasso,Bark,Meowdern Pawmily , Meowtlander,Bone Mirror,Barks and Recreation,How to Get Away with Meowder,Boneland ,Meowther Ted,Mewtopia,Mewey,The Mewkie Meowse Doghouse,Mewster Rogers' Neighborhood").length)
 
 
 // Write a function that, when given a non-empty string, and positive integer X, removes every Xth character from the string. Counting should begin from the first element in the string and should continue in that pattern until the end of the string.
@@ -169,4 +168,79 @@ function day6Decode(str, num){
     return arr.join('')
 }
 
-console.log(day6Decode("The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow.", 5))
+//console.log(day6Decode("The LBachyelor^ is ma tehrrib le tpelev!isioOn sh8ow.", 5))
+
+
+// create a function that swaps each letter of the alphabet for its opposite. A letter's opposite is one that, if the alphabet were flipped Z-A, would be the same number of letters in, and which would also have the opposite case.
+
+// Examples:
+// 'A'  // first letter of the alphabet, uppercase
+// 'z'  // last letter of the alphabet, lowercase
+
+// 'p'  // 16th letter of the alphabet, lowercase
+// 'K'  // 16th letter from *end* of alphabet, uppercase
+
+// 'vCZNKOV: 0 MFNYVI LI KFMXGFZGRLM XSZMTVH'
+// // function replaces letters with opposites
+// 'Example: 0 number or punctuation changes'
+
+function day7Decode(str){
+    const alphaReverse = {
+        'A':'z',
+        'B':'y',
+        'C':'x',
+        'D':'w',
+        'E':'v',
+        'F':'u',
+        'G':'t',
+        'H':'s',
+        'I':'r',
+        'J':'q',
+        'K':'p',
+        'L':'o',
+        'M':'n',
+        'N':'m',
+        'O':'l',
+        'P':'k',
+        'Q':'j',
+        'R':'i',
+        'S':'h',
+        'T':'g',
+        'U':'f',
+        'V':'e',
+        'W':'d',
+        'X':'c',
+        'Y':'b',
+        'Z':'a',
+    }
+
+
+    let reverseArr = []
+    for(let i = 0; i < str.length; i++){
+        if(str[i].toLowerCase() == str[i] && str[i].toLowerCase() != str[i].toUpperCase()){
+            reverseArr.push(Object.keys(alphaReverse).find(key => alphaReverse[key] == str[i]))
+        } else if(str[i].toUpperCase() == str[i] && str[i].toLowerCase() != str[i].toUpperCase()){
+            reverseArr.push(alphaReverse[str[i]])
+        } else{
+            reverseArr.push(str[i])
+        }
+    }
+    return reverseArr.join('')
+}
+
+console.log(day7Decode('vCZNKOV: 0 MFNYVI LI KFMXGFZGRLM XSZMTVH'))
+
+// FINAL SOLUTION
+
+const encryptedMsg = "e!!Igv)t5lltBcvbdeDH3dVw!OOtI#Aa.ZMDu7WYpP^VVjDc4I50iv#ylhgmQfs"
+let decryptedMsg = ''
+decryptedMsg = day1Decode(encryptedMsg)
+console.log(decryptedMsg)
+decryptedMsg = day3Decode(decryptedMsg, ['S', 'p', 'a', 'c', 'e'])
+console.log(decryptedMsg)
+decryptedMsg = day4Decode(decryptedMsg)
+console.log(decryptedMsg)
+decryptedMsg = day6Decode(decryptedMsg, 3)
+console.log(decryptedMsg)
+decryptedMsg = day7Decode(decryptedMsg)
+console.log(decryptedMsg)
