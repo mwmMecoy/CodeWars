@@ -38,3 +38,52 @@ const arr4 = [['a','b','c'],['g','h','i'],['d','e','f']]
 console.log(day1Array(arr1, arr2)) // true
 console.log(day1Array(arr1, arr3)) // false
 console.log(day1Array(arr1, arr4)) // false
+
+// I need twin functions, a function that swaps a given primitive value in a given 1-dimensional array to an index to the left, and another that swaps it to the right.
+
+// Some things to note:
+
+// If the given value is on the edge of the array and can't move in that direction, don't move it.
+// The array passed in should be mutated by this function. Scandalous, I know.
+
+function moveLeft(arr, e){
+    if(arr[0] == e){
+        return arr
+    }
+    let index = arr.indexOf(e)
+    let temp = arr[index-1]
+    arr[index] = temp
+    arr[index-1] = e
+    return arr;
+}
+
+function moveRight(arr, e){
+    if(arr[arr.length-1] == e){
+        return arr
+    }
+    let index = arr.indexOf(e)
+    let temp = arr[index+1]
+    arr[index] = temp
+    arr[index+1] = e
+    return arr;
+}
+
+myArray = ['abc', 'xyz', 1, 2, 'Hey!']
+
+// call move left function with 'xyz' and myArray as arguments
+moveLeft(myArray, 'xyz')
+console.log(myArray)   // ['xyz', 'abc', 1, 2, 'Hey!']
+
+// call move left function again, same arguments
+// Note that 'xyz' is already as far left as it can go
+moveLeft(myArray, 'xyz')
+console.log(myArray) // ['xyz', 'abc', 1, 2, 'Hey!'] no change
+
+// call move right function this time, with 2 and myArray as arguments
+moveRight(myArray, 2)
+console.log(myArray) // ['xyz', 'abc', 1, 'Hey!', 2]
+
+// call move right function again, same arguments
+// Note that 2 is already as far right as it can go
+moveRight(myArray, 2)
+console.log(myArray) // ['xyz', 'abc', 1, 'Hey!', 2] no change
