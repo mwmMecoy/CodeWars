@@ -87,3 +87,27 @@ console.log(myArray) // ['xyz', 'abc', 1, 'Hey!', 2]
 // Note that 2 is already as far right as it can go
 moveRight(myArray, 2)
 console.log(myArray) // ['xyz', 'abc', 1, 'Hey!', 2] no change
+
+
+// write a function that:
+
+// takes in a given array of strings and move any entries containing the letter 'a' to the front
+// then move any remaining entries that have over 3 characters to the back
+// please preserve the relative order of entries within their given category
+
+// myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
+// // move things around
+// => ['hola', 'hallo', 'hi', 'hej', 'hello', 'howdy', 'heyyy']
+
+function moveThingsAround(arr){
+    let letterA = arr.filter((x) => x.includes('a'))
+    let threeLong = arr.filter(x => (!letterA.includes(x) && x.length > 3))
+    let remainders = arr.filter(x => (!letterA.includes(x) && !threeLong.includes(x)))
+
+    return letterA.concat(remainders).concat(threeLong)
+}
+
+let myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
+
+console.log(moveThingsAround(myArr))
+
