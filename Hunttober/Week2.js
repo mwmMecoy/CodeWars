@@ -111,3 +111,95 @@ let myArr = ['hi', 'hello', 'howdy', 'hola', 'hej', 'hallo', 'heyyy']
 
 console.log(moveThingsAround(myArr))
 
+// Imagine, if you will, an array with length X, with each of its entries having X number of primitives as their entries. Now imagine it arranged as a grid.
+
+// // for the less imaginative among us :) 
+// [[0,1,2],[3,4,5],[6,7,8]]
+
+// // as a grid
+// [
+// [0,1,2],
+// [3,4,5],
+// [6,7,8]
+// ]
+
+// Still with me? I hope so! Today I need your help moving some things around again. I'm always rearranging.
+
+// Please write twin functions that each take in a given value that will only appear once within a given array of a similar structure to the one described above, which will either move that value up one row or down one row in the array, keeping its same horizontal position. It will essentially swap places with whatever was where it needed to be. Just like in Day 2, don't do anything if the given value is already as high or low as it can get.
+
+// Oh, and go ahead and mutate the given array. We're livin' on the wild side!
+
+// make 2 functions, one that will move a value up 1 array in a 2d array, and one that moves it down 1 array
+// takes a value that is going to be found and moved, and the 2d array in which it needs to be moved
+
+function moveUp(value, arr){
+    //find the value in the array
+    let location = []
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr[i].length; j++){
+            if(arr[i][j] === value){
+                location = [i, j]
+            }
+        }
+    }
+
+    //check to see if the value is already at the top of the grid
+    if(location[0] == 0){
+        return arr
+    }
+
+    // move value up 1 space in the grid, replace it's original spot with the value that was in that place previously
+    let temp = arr[location[0]-1][location[1]]
+    arr[location[0]-1][location[1]] = value
+    arr[location[0]][location[1]] = temp
+    return arr 
+}
+
+function moveDown(value, arr){
+    //find the value in the array
+    let location = []
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr[i].length; j++){
+            if(arr[i][j] === value){
+                location = [i, j]
+            }
+        }
+    }
+
+    //check to see if the value is already at the top of the grid
+    if(location[0] == arr.length-1){
+        return arr
+    }
+
+    // move value up 1 space in the grid, replace it's original spot with the value that was in that place previously
+    let temp = arr[location[0]+1][location[1]]
+    arr[location[0]+1][location[1]] = value
+    arr[location[0]][location[1]] = temp
+    return arr 
+}
+
+
+myGrid = [['a', 'b', 'c'], ['d', 'e', 'f'], ['g', 'h', 'i']]
+console.log(myGrid)
+
+// call move up function with 'h' and myGrid
+moveUp('h', myGrid)
+console.log(myGrid) // [['a', 'b', 'c'], ['d', 'h', 'f'], ['g', 'e', 'i']]
+
+// call move up function again, same arguments
+moveUp('h', myGrid)
+console.log(myGrid) // [['a', 'h', 'c'], ['d', 'b', 'f'], ['g', 'e', 'i']]
+
+// call move up function again, same arguments
+// Note that 'h' is already as far up as it can go
+moveUp('h', myGrid)
+console.log(myGrid) // [['a', 'h', 'c'], ['d', 'b', 'f'], ['g', 'e', 'i']]
+
+// call move down function this time, with 'f' and myGrid as arguments
+moveDown('f', myGrid)
+console.log(myGrid) // [['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]
+
+// call move down function again, same arguments
+// Note that 'f' is already as far down as it can go
+moveDown('f', myGrid)
+console.log(myGrid) // [['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]
