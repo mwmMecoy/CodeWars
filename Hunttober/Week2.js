@@ -203,3 +203,31 @@ console.log(myGrid) // [['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]
 // Note that 'f' is already as far down as it can go
 moveDown('f', myGrid)
 console.log(myGrid) // [['a', 'h', 'c'], ['d', 'b', 'i'], ['g', 'e', 'f']]
+
+// Please create a function that will take in an array like we've been working with all week (X-inner arrays of X-primitive values each) and shuffle it up in place. The inner primitive values can move to any of the inner arrays, but the length of those inner arrays must always remain X. Other than that, shuffle away! Do your best to have a thorough, random shuffle in a single call of your function.
+
+function DIYShuffle(arr){
+    for(let i = 0; i < arr.length; i++){
+        for(let k = 0; k < arr.length; k++){
+            let shuffle = Math.floor(Math.random()*4)
+            switch(shuffle){
+                case 0:
+                    moveLeft(arr[i], arr[i][k]) 
+                    break;
+                case 1:
+                    amoveRight(arr[i], arr[i][k]) 
+                    break;
+                case 2:
+                    moveDown(arr[i][k], arr) 
+                    break;
+                case 3:
+                    moveLeft(arr[i], arr[i][k]) 
+                    break;
+            }
+        }
+    }
+    return arr
+}
+
+ShuffleArray = [[1,2,3],[4,5,6],[7,8,9]]
+console.log(DIYShuffle(ShuffleArray))
