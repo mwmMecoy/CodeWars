@@ -9,13 +9,11 @@
 function expandedForm(num) {
     // Your code here
     let arr = String(num).split('').reverse()
-    let str = ''
-    for(let i = arr.length-1; i > 0; i--){
+    let resultArr = []
+    for(let i = arr.length-1; i >= 0; i--){
       if(arr[i] !== '0'){
-        str += `${arr[i]}${'0'.repeat(i)} + `
-        console.log(str)
+        resultArr.push(`${arr[i]}${'0'.repeat(i)}`)
       }
     }
-    str += arr[0]
-    return str
+    return resultArr.join(' + ')
   }
