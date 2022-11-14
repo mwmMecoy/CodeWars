@@ -26,6 +26,13 @@ function getMiddle(s)
   return (s.charAt(s.length/2))
 }
 
+// alternate method with spread
+
+// function gimme (triplet) {
+//   let sorted = [...triplet].sort((a,b) => a-b)
+//   return triplet.indexOf(sorted[1])
+// }
+
 console.log(getMiddle("testing"),"t");
 console.log(getMiddle("middle"),"dd");
 console.log(getMiddle("A"),"A");
